@@ -1,4 +1,5 @@
 import logo from './../logoPoke.svg';
+import LanguageSelection from './LanguageSelection';
 
 function NavBar() {
     return (
@@ -6,7 +7,7 @@ function NavBar() {
             <div class="flex items-center justify-between p-4 px-20 max-h-[88px]">
                 <div class="flex items-center cursor-pointer text-white">
                     <div class="w-[22vmin] mr-6">
-                        <img src={logo} alt="Logo Poke" class="w-full h-full object-cover object-center block"/>
+                        <img src={logo} alt="Logo Poke" class="w-full h-full object-cover object-center block" />
                     </div>
                 </div>
 
@@ -18,6 +19,8 @@ function NavBar() {
                         <li class="m-0">
                             <a href="./#about" class="p-[2.2rem] px-[3rem] inline-block text-[1.6rem] uppercase tracking-[1px] font-bold text-white transition hover:translate-y-[-2px] duration-300"> Infos </a>
                         </li>
+                        <LanguageSelection></LanguageSelection>
+
                         {/* <li class="header_link-li">
                         <a href="./#projects" class="header_link"> Projets </a>
                     </li>
