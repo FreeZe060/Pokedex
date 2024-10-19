@@ -1,7 +1,13 @@
-function LanguageSelection() {
+function LanguageSelection({ onLangChange, language }) {
+
+    const handleLanguageChange = (e) => {
+        const selectedLanguage = e.target.value;
+        onLangChange(selectedLanguage);
+    };
+
     return (
         <li class="m-0 flex align-center">
-            <select className="fp-[1rem] px-[2rem] inline-block text-[1.6rem] uppercase font-bold text-white rounded-xl bg-[#001340] cursor-pointer">
+            <select onChange={handleLanguageChange} value={language} className="fp-[1rem] px-[2rem] inline-block text-[1.6rem] uppercase font-bold text-white rounded-xl bg-[#001340] cursor-pointer">
                 <option value="fr">FR</option>
                 <option value="en">EN</option>
                 <option value="de">DE</option>

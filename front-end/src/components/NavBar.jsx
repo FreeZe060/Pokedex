@@ -1,7 +1,7 @@
 import logo from './../logoPoke.svg';
 import LanguageSelection from './LanguageSelection';
 
-function NavBar() {
+function NavBar({ language, onLanguageChange }) {
     return (
         <header class="fixed top-0 w-screen z-10 bg-[#001353] shadow-navbar">
             <div class="flex items-center justify-between p-4 px-20 max-h-[88px]">
@@ -19,7 +19,7 @@ function NavBar() {
                         <li class="m-0">
                             <a href="./#about" class="p-[2.2rem] px-[3rem] inline-block text-[1.6rem] uppercase tracking-[1px] font-bold text-white transition hover:translate-y-[-2px] duration-300"> Infos </a>
                         </li>
-                        <LanguageSelection></LanguageSelection>
+                        <LanguageSelection onLangChange={onLanguageChange} language={language}></LanguageSelection>
 
                         {/* <li class="header_link-li">
                         <a href="./#projects" class="header_link"> Projets </a>
