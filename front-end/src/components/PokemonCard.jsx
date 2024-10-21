@@ -1,6 +1,15 @@
+import { useNavigate } from 'react-router-dom';
+
 const PokemonCard = ({ pokemon, langage, types }) => {
+
+    const navigate = useNavigate();
+
+    const CardClicked = () => {
+        navigate(`/pokemon/${pokemon.id}`, { state: pokemon[pokemon.id] });
+    }
+
     return (
-        <div class="flex bg-white justify-center rounded-3xl p-[2rem] m-8 w-[30rem] shadow-navbar transition hover:translate-y-[-2px] duration-300 transition hover:shadow-hover duration-300 cursor-pointer">
+        <div onClick={CardClicked} class="flex bg-white justify-center rounded-3xl p-[2rem] m-8 w-[30rem] shadow-navbar transition hover:translate-y-[-2px] duration-300 transition hover:shadow-hover duration-300 cursor-pointer">
             <div class="w-full">
                 <div class="flex rounded-3xl justify-center items-center bg-slate-200 h-[120px] mb-3">
                     <img src={pokemon.image} alt={pokemon.names[langage]} class="h-[100%]"/>
