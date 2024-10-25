@@ -1,7 +1,11 @@
 import PokemonCard from './PokemonCard'
 import { useFetch } from "../hooks/useFetch";
+import { useLanguageContext } from '../contexts/LanguageContext';
 
-function PokemonList({ language, searchTerm}) {
+function PokemonList({searchTerm}) {
+
+    const { language } = useLanguageContext();
+
     const pokemonsUrl = "https://pokedex-jgabriele.vercel.app/pokemons.json";
     const typesUrl = "https://pokedex-jgabriele.vercel.app/types.json";
 
@@ -13,11 +17,11 @@ function PokemonList({ language, searchTerm}) {
     return (
         <section class="flex justify-center">
             <div class="flex flex-wrap justify-center w-[90%]">
-                {(isPendingPokemon || isPendingTypes) && <div>Loading....</div>}
-                {(errorPokemon || errorTypes) && <div>Error loading data</div>}
+                {(isPendingPokemon || isPendingTypes) && <div class="text-[4rem] tracking-[1px] text-center text-white font-extrabold">Loading....</div>}
+                {(errorPokemon || errorTypes) && <div class="text-[4rem] tracking-[1px] text-center text-white font-extrabold">Error loading data</div>}
 
                 {filteredPokemons && typesData && filteredPokemons.map((pokemon) => (
-                    <PokemonCard key={pokemon.id} pokemon={pokemon} langage={language} types={typesData}/>
+                    <PokemonCard pokemon={pokemon} types={typesData}/>
                 ))}
             </div>
         </section>

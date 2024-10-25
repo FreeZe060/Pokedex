@@ -4,14 +4,14 @@ import { useState } from 'react';
 import SearchBar from '../components/SearchBar';
 import PokemonList from '../components/PokemonList';
 
-function Home({language}) {
+function Home() {
 
     const [searchTerm, setSearchTerm] = useState("");
     
     return (
         <>
 			<SearchBar onSearch={setSearchTerm}></SearchBar>
-			<PokemonList language={language} searchTerm={searchTerm}></PokemonList>
+			<PokemonList searchTerm={searchTerm}></PokemonList>
 		</>
     );
 }

@@ -1,23 +1,26 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Home from './routing/Home';
-import PokemonInfo from './routing/PokemonInfo';
+import PokemonDetails from './routing/PokemonDetails';
 
 import NavBar from './components/NavBar';
-import { useLanguage } from './hooks/useLanguage';
+import { LanguageProvider } from './contexts/LanguageContext';
+import { PokemonProvider } from './contexts/PokemonContext';
 
 function App() {
 
-	const { language, changeLanguage } = useLanguage();
-
 	return (
-		<Router>
-            <NavBar language={language} onLanguageChange={changeLanguage}></NavBar>
-            <Routes>
-                <Route path="/" element={<Home language={language}/>} />
-                <Route path="/pokemon/:id" component={PokemonInfo} />
-            </Routes>
-        </Router>
+        <LanguageProvider>
+            <PokemonProvider>
+                <Router>
+                    <NavBar></NavBar>
+                    <Routes>
+                        <Route path="/" element={<Home/>} />
+                        <Route path="/pokemon/:id" element={<PokemonDetails/>}/>
+                    </Routes>
+                </Router>
+            </PokemonProvider>
+        </LanguageProvider>
 	);
 }
 
