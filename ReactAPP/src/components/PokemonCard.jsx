@@ -7,10 +7,10 @@ const PokemonCard = ({ pokemon, types }) => {
     const { language } = useLanguageContext();
 
     return (
-        <Link to={`/pokemon/${pokemon.id}`} class="flex bg-white justify-center rounded-3xl p-[2rem] m-8 w-[30rem] shadow-navbar transition hover:translate-y-[-2px] duration-300 transition hover:shadow-hover duration-300 cursor-pointer">
+        <Link to={`/pokemon/${pokemon.id}`} class="group flex bg-white justify-center rounded-3xl p-[2rem] m-8 w-[30rem] shadow-navbar transition hover:translate-y-[-2px] duration-300 transition hover:shadow-hover duration-300 cursor-pointer">
             <div class="w-full">
                 <div class="flex rounded-3xl justify-center items-center bg-slate-200 h-[120px] mb-3">
-                    <img src={pokemon.image} alt={pokemon.names[language]} class="h-[100%]"/>
+                    <img src={pokemon.image} alt={pokemon.names[language]} class="h-[100%] transition-transform duration-300 group-hover:animate-float"/>
                 </div>
                 <h6 class="font-titre text-3xl text-gray-700 text-center font-semibold">{pokemon.names[language]}</h6>
                 <div class="flex flex-row justify-center">
