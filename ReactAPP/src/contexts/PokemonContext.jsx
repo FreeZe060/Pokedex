@@ -4,6 +4,7 @@ import { useFetch } from "../hooks/useFetch";
 const PokemonContext = createContext();
 
 export function PokemonProvider({ children }) {
+    
     const pokemonsUrl = "https://pokedex-jgabriele.vercel.app/pokemons.json";
     const typesUrl = "https://pokedex-jgabriele.vercel.app/types.json";
 

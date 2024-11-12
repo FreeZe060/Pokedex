@@ -1,16 +1,12 @@
-import PokemonCard from './PokemonCard'
-import { useFetch } from "../hooks/useFetch";
+import PokemonCard from './PokemonCard';
 import { useLanguageContext } from '../contexts/LanguageContext';
+import { usePokemonContext } from '../contexts/PokemonContext';
 
 function PokemonList({searchTerm}) {
 
     const { language } = useLanguageContext();
 
-    const pokemonsUrl = "https://pokedex-jgabriele.vercel.app/pokemons.json";
-    const typesUrl = "https://pokedex-jgabriele.vercel.app/types.json";
-
-    const { data: pokemonData, isPending: isPendingPokemon, error: errorPokemon } = useFetch(pokemonsUrl);
-    const { data: typesData, isPending: isPendingTypes, error: errorTypes } = useFetch(typesUrl);
+    const { pokemonData, typesData, isPendingPokemon, isPendingTypes, errorPokemon, errorTypes } = usePokemonContext();
 
     const filteredPokemons = pokemonData ? pokemonData.filter(pokemon => pokemon.names[language].toLowerCase().includes(searchTerm.toLowerCase())) : [];
 
