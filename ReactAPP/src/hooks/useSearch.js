@@ -1,16 +1,16 @@
 import { useState } from "react";
 
-function useSearch(initialValue = "") {
-    const [searchTerm, setSearchTerm] = useState(initialValue);
+function useSearch() {
+    const [searchTerm, setSearchTerm] = useState(() => {
+        return localStorage.getItem("searchterm") || "";
+    });
 
     const handleSearchChange = (term) => {
         setSearchTerm(term);
+        localStorage.setItem("searchterm", term);
     };
 
-    return {
-        searchTerm,
-        handleSearchChange,
-    };
+    return { searchTerm, handleSearchChange };
 }
 
 export default useSearch;
