@@ -1,3 +1,7 @@
+<<<<<<< Updated upstream
 Lien vercel en ligne : https://pokedex-git-main-freeze060s-projects.vercel.app/
 
 Lien Github: https://github.com/FreeZe060/Pokedex
+=======
+Lien vercel en ligne : https://pokedex-git-main-freeze060s-projects.vercel.app/
+>>>>>>> Stashed changes
